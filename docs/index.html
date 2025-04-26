@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Présentation du Serveur Discord Zera</title>
     <link rel="stylesheet" href="styles/style.css">
+    <meta name="author" content="kadawatcha">
+    <link rel="icon" href="styles/img.jpeg" type="image/jpeg">
 </head>
 <body>
     <header>
-        <h1>Zera - Serveur Discord Graphisme</h1>
+        <h1><span id="discord-server-name"></span> - Serveur Discord Graphisme</h1>
     </header>
     <div class="main-layout">
         <main>
@@ -24,24 +26,49 @@
             <section id="links">
                 <h2>Liens utiles si tu es un fan de Tyfax !</h2>
                 <ul>
-                    <li>X : https://x.com/tyfax_yt?s=21</li>
+                    <li>X : <a href="https://x.com/tyfax_yt?s=21" target="_blank" rel="noopener">https://x.com/tyfax_yt?s=21</a></li>
                     <li>Instagram : prochainement</li>
-                    <li>Discord : https://dsc.gg/tyfaxfamily</li>
+                    <li>Discord : <a href="https://dsc.gg/tyfaxfamily" target="_blank" rel="noopener">https://dsc.gg/tyfaxfamily</a></li>
                 </ul>
             </section>
+
+
+
             <section id="invitation">
                 <h2>Liens d'Invitation</h2>
-                <p>Rejoignez-nous en cliquant sur le lien ci-dessous :</p>
-                <a href="https://discord.gg/cckusrWTZT" target="_blank">Rejoindre le Serveur</a>
+                <p>Rejoignez-nous en cliquant sur le bouton ci-dessous :</p>
+                <button id="rocket-btn" class="rocket-btn" onclick="window.open('https://discord.gg/cckusrWTZT', '_blank')">
+                    <span class="rocket-emoji">🚀</span>
+                    <span>Rejoindre le Serveur</span>
+                </button>
             </section>
+
+
+
+
+
+
+
+
         </main>
         <aside id="widget-discord">
-            <h2>Petit apperçu de notre communautée</h2>
+            <h2>Notre communautée de plus de <span id="discord-members">...</span> membres</h2>
+           
             <div class="widget-discord-frame">
                 <iframe src="https://discord.com/widget?id=1218489450699423806&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
             </div>
         </aside>
     </div>
+
+
+
+
+
+
+
+
+
+
     <footer>
         <p>&copy; 2025 Zera - Serveur Discord de Graphisme - Tous droits réservés - dev by @kadawatcha</p>
     </footer>
@@ -49,22 +76,7 @@
 
 
 
-    <script>
-        fetch('https://discord.com/api/guilds/1218489450699423806/widget.json')
-          .then(response => response.json())
-          .then(data => {
-            // Exemple : afficher le nombre de membres connectés
-            const widget = document.getElementById('widget-discord');
-            if (widget) {
-              const count = data.presence_count;
-              const info = document.createElement('p');
-              info.textContent = `Membres connectés : ${count} et si vous venez augmenter ce nombre ? Rejoingnez nous !`;
-              widget.appendChild(info);
-            }
-          })
-          .catch(error => {
-            console.error('Erreur lors du chargement du widget Discord :', error);
-          });
-    </script>
+    <script src="styles/script.js"></script>
+       
 </body>
 </html>

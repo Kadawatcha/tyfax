@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation du Serveur Discord Zera</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Zera - Serveur Discord Graphisme</h1>
+    </header>
+    <div class="main-layout">
+        <main>
+            <section id="description">
+                <h2>Description</h2>
+                <p>Bienvenue sur <strong>Tyfax family's</strong>, le serveur Discord dédié au graphisme, créé pour la communauté de la chaîne YouTube de Tyfax ! Ici, vous pouvez partager vos créations, échanger des conseils, participer à des concours et progresser avec d'autres passionnés de graphisme !</p>
+                <p>Chaîne YouTube de Tyfax : <em>https://www.youtube.com/@tyfaxofficiel</em></p>
+            </section>
+            <section id="rules">
+                <h2>Petite présentation du serveur</h2>
+                <ul>
+                    <li>Respectez les autres membres.</li>
+                    <li>Aucune forme de harcèlement ne sera tolérée.</li>
+                    <li>Utilisez les canaux appropriés pour chaque sujet.</li>
+                </ul>
+            </section>
+            <section id="invitation">
+                <h2>Liens d'Invitation</h2>
+                <p>Rejoignez-nous en cliquant sur le lien ci-dessous :</p>
+                <a href="https://discord.gg/cckusrWTZT" target="_blank">Rejoindre le Serveur</a>
+            </section>
+        </main>
+        <aside id="widget-discord">
+            <h2>Petit apperçu de notre communautée</h2>
+            <div class="widget-discord-frame">
+                <iframe src="https://discord.com/widget?id=1218489450699423806&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <p>&copy; 2025 Zera - Serveur Discord de Graphisme - Tous droits réservés - dev by @kadawatcha</p>
+    </footer>
+
+
+
+
+    <script>
+        fetch('https://discord.com/api/guilds/1218489450699423806/widget.json')
+          .then(response => response.json())
+          .then(data => {
+            // Exemple : afficher le nombre de membres connectés
+            const widget = document.getElementById('widget-discord');
+            if (widget) {
+              const count = data.presence_count;
+              const info = document.createElement('p');
+              info.textContent = `Membres connectés : ${count} et si vous venez augmenter ce nombre ? Rejoingnez nous !`;
+              widget.appendChild(info);
+            }
+          })
+          .catch(error => {
+            console.error('Erreur lors du chargement du widget Discord :', error);
+          });
+    </script>
+</body>
+</html>

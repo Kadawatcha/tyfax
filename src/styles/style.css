@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    --bg-main: #181a20;
+    --bg-section: #23272f;
+    --accent: #5865f2;
+    --accent-hover: #4752c4;
+    --text-main: #f3f4f6;
+    --text-secondary: #b5bac1;
+    --border-radius: 12px;
+    --transition: 0.2s;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+header {
+    background: var(--bg-section);
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+    border-bottom: 1px solid #22242b;
+}
+
+h1, h2 {
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+}
+
+.main-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+main {
+    flex: 2 1 0;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    background: var(--bg-section);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition);
+}
+
+a:hover, a:focus {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+#widget-discord {
+    flex: 1 1 350px;
+    max-width: 370px;
+    min-width: 320px;
+    background: var(--bg-section);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+}
+
+#widget-discord h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.widget-discord-frame {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    background: var(--bg-section);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid #22242b;
+    font-size: 0.95rem;
+    margin-top: 3rem;
+}
+
+strong {
+    color: var(--accent);
+}
+
+em {
+    color: var(--text-secondary);
+}
+
+@media (max-width: 1000px) {
+    .main-layout {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+    #widget-discord {
+        max-width: 100%;
+        margin: 0 auto 2rem auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-layout {
+        padding: 0 0.5rem;
+    }
+    main, #widget-discord {
+        padding: 1rem;
+    }
+    section {
+        padding: 1rem;
+    }
+}

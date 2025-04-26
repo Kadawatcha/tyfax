@@ -1,3 +1,16 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const rocketBtn = document.getElementById('rocket-btn');
+    if (rocketBtn) {
+        rocketBtn.addEventListener('click', function() {
+            rocketBtn.classList.add('fire-on');
+            setTimeout(() => {
+                window.open('https://discord.gg/cckusrWTZT', '_blank');
+                rocketBtn.classList.remove('fire-on');
+            }, 600); // durée de l'animation feu
+        });
+    }
+});
+
 fetch('https://discord.com/api/guilds/1218489450699423806/widget.json')
 .then(response => response.json())
 .then(data => {

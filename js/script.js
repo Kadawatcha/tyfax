@@ -64,15 +64,19 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 });
 
 // === Dernière vidéo YouTube Tyfax ===
-const YT_API_KEY = '${{ secrets.YT_API_KEY }}'; // api 
-
-const TYFAX_CHANNEL_ID = 'UCFzedEi7WdYCL8X5yh5zlwQ'; 
+const YT_API_KEY = '${secret.YT_API_KEY}'; // api
+const TYFAX_CHANNEL_ID = 'UCFzedEi7WdYCL8X5yh5zlwQ';
 
 async function fetchLatestTyfaxVideo() {
     const cacheKey = 'latestTyfaxVideo';
     const cacheTTL = 60 * 60 * 1000; // 1 heure en ms
 
-    // Vérifie le cache
+    // Vérifie le cache avec navigator.storage.persisted()
+    let isPersistent = false;
+    if (navigator.storage && navigator.storage.persisted) {
+        isPersistent = await navigator.storage.persisted();
+    }
+
     const cached = localStorage.getItem(cacheKey);
     if (cached) {
         const { data, timestamp } = JSON.parse(cached);

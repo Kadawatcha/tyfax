@@ -1,1 +1,1 @@
-SIte dispo a l'url : https://kadawatcha.github.io/tyfax/
+Site dispo a l'url : https://kadawatcha.github.io/tyfax/

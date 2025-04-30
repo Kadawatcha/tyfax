@@ -64,8 +64,8 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 });
 
 // === Dernière vidéo YouTube Tyfax ===
-const YT_API_KEY = 'AIzaSyA3NTWZGU97DfrNS0hJmiAm8H_Ie7kuPSs'; // api 
-// '${{ secrets.YT_API_KEY }}' // secret github action
+const YT_API_KEY = '${{ secrets.YT_API_KEY }}'; // api 
+
 const TYFAX_CHANNEL_ID = 'UCFzedEi7WdYCL8X5yh5zlwQ'; 
 
 async function fetchLatestTyfaxVideo() {

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // bonjour au dev
   console.log('Bonjour a toi qui t\'aventures dans la console de dev !\nMoi c\'est kada, j\'ai dev ce petit site pour mon pote Tyfax\nAllez a + si tu veux discuter w me viens sur discord !');
+  console.log(YT_API_KEY)
   console.log('les messages d\'erreur dans la console ne sont pas du a moi mais a ytb / logo discord ( je suis pas dev de l\'api discord !');
 });
 

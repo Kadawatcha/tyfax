@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // bonjour au dev
   console.log('Bonjour a toi qui t\'aventures dans la console de dev !\nMoi c\'est kada, j\'ai dev ce petit site pour mon pote Tyfax\nAllez a + si tu veux discuter w me viens sur discord !');
-  console.log(YT_API_KEY)
   console.log('les messages d\'erreur dans la console ne sont pas du a moi mais a ytb / logo discord ( je suis pas dev de l\'api discord !');
 });
 
@@ -48,7 +46,9 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 });
 
 // === Dernière vidéo YouTube Tyfax ===
-const YT_API_KEY = '${{secrets.YT_API_KEY}} '; 
+const YT_API_KEY = (window.LOCAL_CONFIG && window.LOCAL_CONFIG.YT_API_KEY) 
+    ? window.LOCAL_CONFIG.YT_API_KEY 
+    : '${{secrets.YT_API_KEY}} ';
 const TYFAX_CHANNEL_ID = 'UCFzedEi7WdYCL8X5yh5zlwQ'; 
 
 async function fetchLatestTyfaxVideo() {

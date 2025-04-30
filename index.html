@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tyfax - Communautée</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <meta name="author" content="kadawatcha">
     <meta name="keywords" content="Tyfax, Discord, communauté, graphisme, vidéos, concours, entraide, kadawatcha" >
     <meta name= "description" content="Rejoins la communauté Tyfax ! Discord, vidéos, concours, entraide et graphisme. Clique pour découvrir et trouve tous les liens officiel de Tyfax !">
-    <link rel="icon" href="styles/img.jpeg" type="image/jpeg">
+    <link rel="icon" href="img/img.jpeg" type="image/jpeg">
 
     <meta property="og:title" content="Tyfax réseaux et communauté" />
     <meta property="og:description" content="Rejoins la communauté Tyfax ! Discord, vidéos, concours, entraide et graphisme. Clique pour découvrir !" />
-    <meta property="og:image" content="https://kadawatcha.github.io/styles/img.jpeg" />
+    <meta property="og:image" content="https://kadawatcha.github.io/img/img.jpeg" />
     <meta property="og:url" content="https://kadawatcha.github.io/tyfax/" />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#4FC3F7" />
@@ -21,7 +21,19 @@
 </head>
 <body>
     <header>
-        <h1><span id="discord-server-name"></span> - Communautée Gaming </h1>
+        <h1>
+            
+            <span id="discord-server-name"></span> - Communautée Gaming
+
+            <div class="youtube-subscribe">
+                <a href="https://www.youtube.com/@tyfaxofficiel?sub_confirmation=1" target="_blank" rel="noopener noreferrer">
+                    <span class="icon"></span>
+                    <span class="subscriber-count">
+                        <span class="count" id="subscriber-count"></span> abonnés 🔥                                
+                    </span>
+                </a>
+            </div>
+        </h1>
     </header>
     <div class="main-layout">
         <div class="content-with-aside">
@@ -54,12 +66,17 @@
                 </section>
                 <section id="invitation" class="hover-grow">
                     <h2>Liens d'Invitation</h2>
-                    <p>Rejoignez-nous en cliquant sur le bouton ci-dessous :</p>
-                    <button id="rocket-btn" class="rocket-btn">
-                        <span class="rocket-emoji">🚀</span>
-                        <span>Rejoindre le Serveur</span>
-                        <span class="fire"></span>
+                    <p>Rejoignez-nous en cliquant sur le bouton ci-dessous ou soutenez Tyfax sur Youtube</p>
+                    <button id="discord" class="boutons custom-button discord-button">
+                        <img src="img/dsc.png" alt="logo discord" class="logo" width="25" height="25">
+                        <span>Join our Discord</span>
                     </button>
+
+                    <button id="ytb" class="boutons custom-button youtube-button">
+                        <img src="img/ytb.png" alt="logo youtube" class="logo" width="30" height="30">
+                        <span>Subscribe</span>
+                    </button>
+
                 </section>
             </main>
         </div>
@@ -67,8 +84,11 @@
             <aside id="latest-video" class="aside-box hover-grow">
                 <h2>Dernière Vidéo de Tyfax</h2>
                 <div id="video-container">                    
-                <p>Recherche en cours...</p>
 
+                    <div id="video-title" style="margin-top: 10px; font-weight: bold; text-align: center;"></div>
+                 
+                    <p>Recherche en cours...</p>
+                </div>
             </aside>
             <aside id="widget-discord" class="aside-box">
                 <h2>Voici une petite partie de notre commu !</h2>
@@ -107,7 +127,7 @@
         <p>&copy; 2025 Zera - Serveur Discord de Graphisme - Tous droits réservés - dev by @kadawatcha admin of Tyfax's server</p>
     </footer>
 
-    <script src="styles/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>

@@ -18,6 +18,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 header {
@@ -27,7 +28,15 @@ header {
     border-bottom: 1px solid #22242b;
 }
 
-h1, h2 {
+h1 {
+    text-align: center;
+
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+
+}
+
+h2 {
     margin: 0 0 1rem 0;
     font-weight: 700;
 }
@@ -110,9 +119,6 @@ a:hover, a:focus {
     letter-spacing: 0.5px;
 }
 
-/* On garde le style spécifique pour le widget Discord si besoin */
-
-
 #widget-discord .widget-discord-frame {
     border-radius: 12px;
     overflow: hidden;
@@ -156,17 +162,6 @@ a:hover, a:focus {
     background: #2c2f33;
     padding: 0.2rem;
 }
-
-#video-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: #23272a;
-    border-radius: 12px;
-    overflow: hidden;
-}   
 
 
 footer {
@@ -214,27 +209,6 @@ em {
     z-index: 1;
 }
 
-.rocket-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5em;
-    padding: 0.7em 1.5em;
-    background: #5865F2;
-    color: #fff;
-    border: none;
-    border-radius: 2em;
-    font-size: 1.1em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.18s, transform 0.18s;
-    box-shadow: 0 2px 8px rgba(88,101,242,0.08);
-}
-
-.rocket-btn:hover {
-    background: #4752c4;
-    transform: translateY(-2px) scale(1.04);
-}
-
 .fire {
     display: none; /* cacher si non utilisé */
 }
@@ -266,4 +240,123 @@ em {
     margin-top: -5px;
 }
 
+.custom-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
 
+.custom-button img {
+    margin-right: 10px;
+    width: 30px; /* Ajuste la largeur de l'image */
+    height: 30px; /* Ajuste la hauteur de l'image */
+  
+}
+
+.discord-button {
+    background-color: #7289DA;
+    color: white;
+
+}
+
+.discord-button:hover {
+    background-color: #677bc4;
+}
+
+.youtube-button {
+    background-color: #c4302b;
+    color: white;
+}
+
+.youtube-button:hover {
+    background-color: #cc0000;
+}
+
+.youtube-subscribe {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #c4302b; /* Rouge YouTube */
+    color: white;
+    font-family: sans-serif;
+    font-size: 16px;
+    position: relative;
+    text-align: right;
+    margin-top: 1.5rem; /* Augmenté de 10px pour plus d'espace */
+    border: 2px solid #c4302b;
+    border-radius: 5px;
+}
+
+.youtube-subscribe a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: white;
+}
+
+.youtube-subscribe .icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/ytb.png'); /* Remplace par le chemin de ton icône */
+    background-size: cover;
+    transform: scale(2);
+}
+
+.youtube-subscribe .subscriber-count {
+    font-size: 14px;
+}
+
+.youtube-subscribe .subscriber-count .count {
+    color: #eee;
+    font-weight: bold;
+}
+
+/* Style au survol (facultatif) */
+.youtube-subscribe a:hover {
+    opacity: 0.9;
+}
+
+.button-container a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.button-container a:hover {
+    opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+    /* Styles pour la barre de défilement sur PC */
+    ::-webkit-scrollbar {
+        width: 12px; /* Largeur de la barre */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Couleur de fond de la piste */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888; /* Couleur du "thumb" */
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Couleur au survol */
+    }
+}

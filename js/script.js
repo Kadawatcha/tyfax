@@ -1,6 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Bonjour a toi qui t\'aventures dans la console de dev !\nMoi c\'est kada, j\'ai dev ce petit site pour mon pote Tyfax\nAllez a + si tu veux discuter w me viens sur discord !');
   console.log('les messages d\'erreur dans la console ne sont pas du a moi mais a ytb / logo discord ( je suis pas dev de l\'api discord !');
+
+  const rocketBtn = document.getElementById('rocket-btn');
+  if (rocketBtn) {
+    rocketBtn.addEventListener('click', function() {
+      window.open('https://discord.gg/cckusrWTZT', '_blank');
+    });
+  }
+
+  const ytbBtn = document.getElementById('ytb');
+  if (ytbBtn) {
+    ytbBtn.addEventListener('click', function() {
+      window.open('https://www.youtube.com/@tyfaxofficiel', '_blank');
+    });
+  }
+
+    // === Dernière vidéo YouTube Tyfax ===
+    fetchLatestTyfaxVideo();
+    fetchYouTubeSubscribers(); // Ajout de l'appel à la fonction
 });
 
 // === Widget Discord ===
@@ -46,9 +64,8 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 });
 
 // === Dernière vidéo YouTube Tyfax ===
-const YT_API_KEY = (window.LOCAL_CONFIG && window.LOCAL_CONFIG.YT_API_KEY) 
-    ? window.LOCAL_CONFIG.YT_API_KEY 
-    : '${{secrets.YT_API_KEY}} ';
+const YT_API_KEY = 'AIzaSyA3NTWZGU97DfrNS0hJmiAm8H_Ie7kuPSs'; // api 
+// '${{ secrets.YT_API_KEY }}' // secret github action
 const TYFAX_CHANNEL_ID = 'UCFzedEi7WdYCL8X5yh5zlwQ'; 
 
 async function fetchLatestTyfaxVideo() {
@@ -80,6 +97,7 @@ async function fetchLatestTyfaxVideo() {
         console.error('Erreur lors du chargement de la vidéo:', e);
         document.getElementById('video-container').innerHTML = `<p>Erreur lors du chargement de la vidéo. <br> Surement limite d'api revient demain ou va direct sur sa chaine <a href="https://www.youtube.com/@tyfaxofficiel" target="_blank" rel="noopener">ici</a> !</p>`;
     }
+    fetchYouTubeSubscribers();
 }
 
 
@@ -91,22 +109,39 @@ function renderVideo(data) {
         !/live/i.test(item.snippet.title)
     );
     if (video && video.id.videoId) {
+        // Affiche la vidéo dans le container
         document.getElementById('video-container').innerHTML = `
             <div class="video-yt-responsive" style="width:100%;">
-              <iframe width="100%" height="225" src="https://www.youtube.com/embed/${video.id.videoId}" title="${video.snippet.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:8px;display:block;"></iframe>
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/${video.id.videoId}" title="${video.snippet.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:8px;display:block;"></iframe>
             </div>
-            <div style="width:100%;">
-              <p style="margin-top:0.5em;font-weight:bold;text-align:center;">${video.snippet.title}</p>
-            </div>
+            <div id="video-title" style="margin-top:10px;font-weight:bold;text-align:center;">${video.snippet.title}</div>
         `;
     } else {
         document.getElementById('video-container').innerHTML = `<p>Impossible de charger la dernière vidéo</p>`;
     }
 }
 
-// === Appel pour charger la vidéo au démarrage ===
-fetchLatestTyfaxVideo();
+function fetchYouTubeSubscribers() {
+  const apiKey = YT_API_KEY;
+  const channelId = TYFAX_CHANNEL_ID;
 
+  fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.items && data.items.length > 0) {
+        const subscriberCount = data.items[0].statistics.subscriberCount;
+        const formattedCount = new Intl.NumberFormat().format(subscriberCount);
+        const subscriberCountElement = document.getElementById('subscriber-count');
+        subscriberCountElement.textContent = formattedCount;
+        console.log(`Nombre d'abonnés : ${formattedCount}`);
+      } else {
+        console.log('Aucune donnée d\'abonnés trouvée.');
+      }
+    })
+    .catch(error => {
+      console.error('Erreur lors de la récupération du nombre d\'abonnés:', error);
+    });
+}
 
 
 
